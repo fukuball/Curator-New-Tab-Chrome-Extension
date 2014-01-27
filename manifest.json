@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "小海嚴選正妹桌布",
+  "description": "小海嚴選正妹桌布",
+  "version": "0.0.1",
+  "icons": { "128": "icon-92.png" },
+  "author": "fukuball",
+  "chrome_url_overrides" : {
+    "newtab": "curator-new-tab.html"
+  },
+  "background": {
+    "scripts": ["curator-new-tab-background.js"]
+  },
+  "permissions": [
+    "http://curator.im/"
+  ]
+}
