@@ -69,37 +69,131 @@
             min-width: 100%;
             min-height: 100%;
         }
+        #main-content-inner {
+            width: 900px; 
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+        }
+        #girl-photo-block {
+            width: 600px;
+            float: left;
+
+        }
+        .image-frame {
+            height : 570px;
+            width : 570px;
+            line-height : 570px;
+            text-align : center;
+            overflow: hidden;
+        }
+        .image-frame img {
+            width : 570px;
+            vertical-align : middle;
+        }
+        .polaroid {
+            background: #fff;
+            padding: 15px 15px 10px;
+            text-align: center;
+            font-family: "Marker Felt", sans-serif;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+            -webkit-transform: rotate(-2deg);
+        }
+        #search-bar-block {
+            width: 300px;
+            float: left;
+        }
         #speech-input-field {
-            width: 400px;
-            height: 50px;
+            margin-left: 15px;
+            width: 250px;
+            height: 25px;
             padding: 10px 15px;
             font-size: 155%;
             border-radius: 10px;
             border: 1px solid #ccc;
             outline: 0;
+            margin-bottom: 10px;
         }
-
+        .google-search-btn {
+            -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+            box-shadow:inset 0px 1px 0px 0px #ffffff;
+            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+            background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+            background-color:#ededed;
+            -webkit-border-top-left-radius:6px;
+            -moz-border-radius-topleft:6px;
+            border-top-left-radius:6px;
+            -webkit-border-top-right-radius:6px;
+            -moz-border-radius-topright:6px;
+            border-top-right-radius:6px;
+            -webkit-border-bottom-right-radius:6px;
+            -moz-border-radius-bottomright:6px;
+            border-bottom-right-radius:6px;
+            -webkit-border-bottom-left-radius:6px;
+            -moz-border-radius-bottomleft:6px;
+            border-bottom-left-radius:6px;
+            text-indent:0;
+            border:1px solid #dcdcdc;
+            display:inline-block;
+            color:#777777;
+            font-family:arial;
+            font-size:15px;
+            font-weight:bold;
+            font-style:normal;
+            height:50px;
+            line-height:50px;
+            width:100px;
+            text-decoration:none;
+            text-align:center;
+            text-shadow:1px 1px 0px #ffffff;
+        }
+        .google-search-btn:hover {
+            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+            background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+            background-color:#dfdfdf;
+        }
+        .google-search-btn:active {
+            position:relative;
+            top:1px;
+        }
+        .text-center {
+            text-align: center;
+        }
     </style>
     <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="curator-new-tab.js"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-41911929-2', 'fukuball.com');
-      ga('send', 'pageview');
-
-    </script>
   </head>
-  <body>
+  <body lang="zh-TW">
     <div id="content-block">
         <div id="bg-block">
         </div>
         <div id="main-content-block" class="clearfix">
-            <div id="search-bar-block" style="width: 800px; margin-left:auto;margin-right:auto;">
-                <input id="speech-input-field" type="text" x-webkit-speech />
+            <div id="main-content-inner">
+                <div class="clearfix">
+                    <div id="girl-photo-block">
+                        <div class="polaroid">
+                            <div class="image-frame">
+                                <img id="girl-image" src="assets/img/bg-girl.jpg" />
+                            </div>
+                            <div>
+                                <h3 id="girl-name">正妹</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="search-bar-block">
+                        <input id="speech-input-field" type="text" x-webkit-speech />
+                        <div class="text-center">
+                            <a href="#" class="google-search-btn">Google 搜尋</a>
+                        </div>
+                    </div>
+                <div>
             </div>
         </div>
         <div id="footer-block" class="clearfix">

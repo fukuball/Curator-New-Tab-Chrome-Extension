@@ -4,7 +4,7 @@
   "name": "小海嚴選正妹桌布",
   "description": "小海嚴選正妹桌布",
   "version": "0.0.1",
-  "icons": { "128": "icon-92.png" },
+  "icons": { "128": "icon.png" },
   "author": "fukuball",
   "chrome_url_overrides" : {
     "newtab": "curator-new-tab.html"
