@@ -1,5 +1,7 @@
 # Curator-New-Tab-Chrome-Extension 小海嚴選正妹桌布
 
+小海嚴選正妹桌布是一個 Chrome Extension 應用，安裝小海嚴選正妹桌布後，當你疲憊地開新分頁準備工作時，小海嚴選正妹便會出現來拯救你，每次開新分頁都會有不同的正妹來為你加油打氣噢！讓我們一起開心的開心分頁吧！
+
 本應用也是一個開源軟體，請各位開發者踴躍加入開發，讓小海嚴選正妹桌布變得更好！
 
 # 小海嚴選正妹簡介
@@ -16,8 +18,11 @@
 看起來像這樣
 ==============
 
-![圖片](https://raw2.github.com/fukuball/Curator-Clock-Chrome-Extension/master/screenshot/screenshot1.png) 
-![圖片](https://raw2.github.com/fukuball/Curator-Clock-Chrome-Extension/master/screenshot/screenshot2.png) 
+![圖片](https://raw2.github.com/fukuball/Curator-New-Tab-Chrome-Extension/master/screenshot/screenshot1.jpg) 
+![圖片](https://raw2.github.com/fukuball/Curator-New-Tab-Chrome-Extension/master/screenshot/screenshot2.jpg)
+![圖片](https://raw2.github.com/fukuball/Curator-New-Tab-Chrome-Extension/master/screenshot/screenshot3.jpg) 
+![圖片](https://raw2.github.com/fukuball/Curator-New-Tab-Chrome-Extension/master/screenshot/screenshot4.jpg) 
+![圖片](https://raw2.github.com/fukuball/Curator-New-Tab-Chrome-Extension/master/screenshot/screenshot5.jpg)  
 
 ## License
 Copyright (c) 2014 fukuball
