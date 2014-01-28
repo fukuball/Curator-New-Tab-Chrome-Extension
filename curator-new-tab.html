@@ -70,7 +70,7 @@
             min-height: 100%;
         }
         #main-content-inner {
-            width: 900px; 
+            width: 1000px; 
             margin-left: auto;
             margin-right: auto;
             margin-top: 5%;
@@ -103,67 +103,25 @@
             -webkit-transform: rotate(-2deg);
         }
         #search-bar-block {
-            width: 300px;
+            width: 400px;
             float: left;
         }
         #speech-input-field {
             margin-left: 15px;
-            width: 250px;
+            width: 350px;
             height: 25px;
-            padding: 10px 15px;
+            padding: 8px 15px 10px 15px;
             font-size: 155%;
             border-radius: 10px;
             border: 1px solid #ccc;
             outline: 0;
             margin-bottom: 10px;
         }
-        .google-search-btn {
-            -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-            -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-            box-shadow:inset 0px 1px 0px 0px #ffffff;
-            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
-            background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
-            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-            background-color:#ededed;
-            -webkit-border-top-left-radius:6px;
-            -moz-border-radius-topleft:6px;
-            border-top-left-radius:6px;
-            -webkit-border-top-right-radius:6px;
-            -moz-border-radius-topright:6px;
-            border-top-right-radius:6px;
-            -webkit-border-bottom-right-radius:6px;
-            -moz-border-radius-bottomright:6px;
-            border-bottom-right-radius:6px;
-            -webkit-border-bottom-left-radius:6px;
-            -moz-border-radius-bottomleft:6px;
-            border-bottom-left-radius:6px;
-            text-indent:0;
-            border:1px solid #dcdcdc;
-            display:inline-block;
-            color:#777777;
-            font-family:arial;
-            font-size:15px;
-            font-weight:bold;
-            font-style:normal;
-            height:50px;
-            line-height:50px;
-            width:100px;
-            text-decoration:none;
-            text-align:center;
-            text-shadow:1px 1px 0px #ffffff;
-        }
-        .google-search-btn:hover {
-            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
-            background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
-            background-color:#dfdfdf;
-        }
-        .google-search-btn:active {
-            position:relative;
-            top:1px;
-        }
         .text-center {
             text-align: center;
+        }
+        #speech-input-field::-webkit-input-placeholder {
+            font-size: 75%;
         }
     </style>
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -188,10 +146,9 @@
                         </div>
                     </div>
                     <div id="search-bar-block">
-                        <input id="speech-input-field" type="text" x-webkit-speech />
-                        <div class="text-center">
-                            <a href="#" class="google-search-btn">Google 搜尋</a>
-                        </div>
+                        <form name="google_search_form" id="google-search-form" action="" method="GET">
+                            <input id="speech-input-field" type="text" placeholder="Google 搜尋..." x-webkit-speech />
+                        </form>
                     </div>
                 <div>
             </div>

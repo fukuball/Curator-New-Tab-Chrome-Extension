@@ -45,10 +45,21 @@ function getGirls() {
 
 $(document).ready(function() {
 
-    $(document.body).off('click.google_search_btn', '.google-search-btn');
+    /*$(document.body).off('click.google_search_btn', '.google-search-btn');
     $(document.body).on('click.google_search_btn', '.google-search-btn', function() {
         var google_search = "http://www.google.com.tw/#q="+$('#speech-input-field').val();
         window.location = google_search;
+    });*/
+
+    //callback handler for form submit
+    $("#google-search-form").submit(function(e) {
+        
+        var google_search = "http://www.google.com.tw/#q="+$('#speech-input-field').val();
+        window.location = google_search;
+        
+        e.preventDefault(); //STOP default action
+        e.unbind(); //unbind. to stop multiple form submit.
+    
     });
     
     getGirls();
