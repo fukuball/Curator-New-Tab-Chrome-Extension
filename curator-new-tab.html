@@ -107,21 +107,66 @@
             float: left;
         }
         #speech-input-field {
-            margin-left: 15px;
             width: 350px;
             height: 25px;
             padding: 8px 15px 10px 15px;
-            font-size: 155%;
+            font-size: 25px;
             border-radius: 10px;
             border: 1px solid #ccc;
             outline: 0;
-            margin-bottom: 10px;
+            margin: 15px;
         }
         .text-center {
             text-align: center;
         }
         #speech-input-field::-webkit-input-placeholder {
-            font-size: 75%;
+            font-size: 20px;
+        }
+        @media screen and (min-width: 1281px) {
+            #main-content-inner {
+                width: 1000px; 
+            }
+            #girl-photo-block {
+                width: 600px;
+            }
+            .image-frame {
+                height : 570px;
+                width : 570px;
+                line-height : 570px;
+            }
+            .image-frame img {
+                width : 570px;
+            }
+            #search-bar-block {
+                width: 400px;
+            }
+            #speech-input-field {
+                width: 350px;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1280px) { 
+            #main-content-inner {
+                width: 800px; 
+            }
+            #girl-photo-block {
+                width: 500px;
+            }
+            .image-frame {
+                height : 470px;
+                width : 470px;
+                line-height : 470px;
+            }
+            .image-frame img {
+                width : 470px;
+            }
+            #search-bar-block {
+                width: 300px;
+            }
+            #speech-input-field {
+                width: 250px;
+            }   
+        }
+        @media screen and (max-width: 767px) {   
         }
     </style>
     <script src="assets/js/jquery-2.1.0.min.js"></script>
