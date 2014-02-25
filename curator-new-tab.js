@@ -44,6 +44,7 @@ function getGirlOfTheDay() {
             $('#girl-image-small').attr("src", girl_of_the_day_image); 
             $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
 
+            $('#search-bar-block').addClass("bigEntrance");
 
         }
 
@@ -74,6 +75,8 @@ function getGirlStream() {
             $('#bg-block').css('background-image', 'url('+girl_image+')')
             $('#girl-image').attr("src", girl_image); 
             $('#girl-name').html(girl_name); 
+
+            $('#girl-photo-block').addClass("bigEntrance");
 
         }
 

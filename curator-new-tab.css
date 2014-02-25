@@ -74,7 +74,7 @@ html[xmlns] .clearfix {
 #girl-photo-block {
     width: 600px;
     float: left;
-
+    visibility: hidden;
 }
 .image-frame {
     height : 570px;
@@ -123,6 +123,7 @@ html[xmlns] .clearfix {
 #search-bar-block {
     width: 400px;
     float: left;
+    visibility: hidden;
 }
 #speech-input-field {
     width: 350px;
