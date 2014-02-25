@@ -42,7 +42,7 @@ function getGirlOfTheDay() {
             girl_of_the_day_date = data.results[0].date;
 
             $('#girl-image-small').attr("src", girl_of_the_day_image); 
-            $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'">一天一妹：'+girl_of_the_day_name+'</a>'); 
+            $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
 
 
         }
@@ -75,10 +75,6 @@ function getGirlStream() {
             $('#girl-image').attr("src", girl_image); 
             $('#girl-name').html(girl_name); 
 
-            /*$('#girl-image').imagesLoaded( function() {
-                $('body').css('display', 'block');
-            });*/
-
         }
 
     });
@@ -94,11 +90,13 @@ function getGirls() {
 
 $(document).ready(function() {
 
-    /*$(document.body).off('click.google_search_btn', '.google-search-btn');
-    $(document.body).on('click.google_search_btn', '.google-search-btn', function() {
-        var google_search = "http://www.google.com.tw/#q="+$('#speech-input-field').val();
-        window.location = google_search;
-    });*/
+    // i18n
+    document.title = chrome.i18n.getMessage("application_title");
+    $('#speech-input-field').attr("placeholder", chrome.i18n.getMessage("google_search_text"));
+    $('#girl-curator-link').html(chrome.i18n.getMessage("girl_curator_text"));
+    $('#girl-stream-link').html(chrome.i18n.getMessage("girl_stream_text"));
+    $('#girl-of-the-day-link').html(chrome.i18n.getMessage("girl_of_the_day_text"));
+    $('#girl-calendar-link').html(chrome.i18n.getMessage("girl_calendar_text"));
 
     var polaroid_rotate = shuffle(rotateArray());
     $('#girl-photo-polaroid').addClass(polaroid_rotate[0]);

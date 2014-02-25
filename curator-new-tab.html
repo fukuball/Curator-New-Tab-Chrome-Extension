@@ -3,153 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>小海嚴選正妹分頁</title>
-    <style>
-        body {
-            color: #222;
-            width: 100%;
-            height: 100%;
-        }
-        a, a:hover, a:active, a:focus {
-            color: #428bca;
-            text-decoration: none;
-            outline: 0px;
-        }
-        .clearfix:after {
-            content: ".";
-            display: block;
-            clear: both;
-            visibility: hidden;
-            line-height: 0;
-            height: 0;
-        }
-        .clearfix {
-            display: inline-block;
-        }
-        html[xmlns] .clearfix {
-            display: block;
-        }
-        * html .clearfix {
-            height: 1%;
-        }
-        #bg-block { 
-            position: fixed; 
-            top: 0; 
-            left: 0;
-            z-index: 0;
-            min-width: 100%;
-            min-height: 100%;
-            background: url(assets/img/bg-girl.jpg) no-repeat center center fixed; 
-            -webkit-background-size: cover;
-            -webkit-filter: blur(5px);
-        }
-        #footer-block {
-            position: fixed; 
-            bottom: 0; 
-            left: 0;
-            z-index: 10;  
-            min-width: 100%;
-            background: #f2f2f2;
-            border-top: 1px solid #e4e4e4;
-            font-size: small;
-            line-height: 40px;  
-        }
-        #footer-right {
-            margin-right: 30px;
-            float: right;
-            white-space: nowrap;
-        }
-        .footer-link {
-            color: #666;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-        #main-content-block {
-            position: fixed; 
-            top: 0; 
-            left: 0;
-            z-index: 5;
-            min-width: 100%;
-            min-height: 100%;
-        }
-        #main-content-inner {
-            width: 1000px; 
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 5%;
-        }
-        #girl-photo-block {
-            width: 600px;
-            float: left;
-
-        }
-        .image-frame {
-            height : 570px;
-            width : 570px;
-            line-height : 570px;
-            text-align : center;
-            overflow: hidden;
-        }
-        .image-frame img {
-            width : 570px;
-            vertical-align : middle;
-        }
-        .image-frame-small {
-            height : 350px;
-            width : 350px;
-            line-height : 350px;
-            text-align : center;
-            overflow: hidden;
-        }
-        .image-frame-small img {
-            width : 350px;
-            vertical-align : middle;
-        }
-        .polaroid {
-            background: #fff;
-            padding: 15px 15px 10px;
-            text-align: center;
-            font-family: "Marker Felt", sans-serif;
-            text-decoration: none;
-            color: #333;
-            font-size: 18px;
-            -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
-        }
-        .polaroid-rotate-m2 {
-            -webkit-transform: rotate(-2deg);
-        }
-        .polaroid-rotate-m1 {
-            -webkit-transform: rotate(-1deg);
-        }
-        .polaroid-rotate-p2 {
-            -webkit-transform: rotate(2deg);
-        }
-        .polaroid-rotate-p1 {
-            -webkit-transform: rotate(1deg);
-        }
-        #search-bar-block {
-            width: 400px;
-            float: left;
-        }
-        #speech-input-field {
-            width: 350px;
-            height: 25px;
-            padding: 8px 15px 10px 15px;
-            font-size: 25px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            outline: 0;
-            margin: 15px;
-        }
-        .text-center {
-            text-align: center;
-        }
-        #speech-input-field::-webkit-input-placeholder {
-            font-size: 20px;
-        }
-    </style>
-    <script src="assets/js/jquery-2.1.0.min.js"></script>
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="curator-new-tab.js"></script>
+    <link href="curator-new-tab.css" rel="stylesheet">
   </head>
   <body lang="zh-TW">
     <div id="content-block">
@@ -164,7 +18,7 @@
                                 <img id="girl-image" src="assets/img/bg-girl.jpg" />
                             </div>
                             <div>
-                                <h3 id="girl-name">正妹</h3>
+                                <h3 id="girl-name"></h3>
                             </div>
                         </div>
                     </div>
@@ -177,7 +31,7 @@
                                 <img id="girl-image-small" src="assets/img/bg-girl.jpg" />
                             </div>
                             <div>
-                                <h4 id="girl-name-small">正妹</h4>
+                                <h4 id="girl-name-small"></h4>
                             </div>
                         </div>
                     </div>
@@ -185,28 +39,30 @@
             </div>
         </div>
         <div id="footer-block" class="clearfix">
-            <div id="footer-right">
-                <a class="footer-link" href="http://curator.im/calendar/">
+            <div class="footer-right">
+                <a id="girl-calendar-link" class="footer-link" href="http://curator.im/calendar/">
                     妹子日曆
                 </a>
             </div>
-            <div id="footer-right">
-                <a class="footer-link" href="http://curator.im/girl_of_the_day/">
+            <div class="footer-right">
+                <a id="girl-of-the-day-link" class="footer-link" href="http://curator.im/girl_of_the_day/">
                     一天一妹
                 </a>
             </div>
-            <div id="footer-right">
-                <a class="footer-link" href="http://curator.im/stream/">
+            <div class="footer-right">
+                <a id="girl-stream-link" class="footer-link" href="http://curator.im/stream/">
                     正妹流
                 </a>
             </div>
-            <div id="footer-right">
-                <a class="footer-link" href="http://curator.im/">
+            <div class="footer-right">
+                <a id="girl-curator-link" class="footer-link" href="http://curator.im/">
                     小海嚴選
                 </a>
             </div>
         </div>
     </div>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="curator-new-tab.js"></script>
   </body>
 </html>
-

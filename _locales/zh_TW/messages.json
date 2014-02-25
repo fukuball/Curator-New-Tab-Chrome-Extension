@@ -1,0 +1,30 @@
+{
+    "application_title": {
+        "message": "小海嚴選正妹分頁",
+        "description": "應用程式名稱"
+    },
+    "application_description": {
+        "message": "小海嚴選正妹分頁是一個 Chrome Extension 應用，安裝小海嚴選正妹分頁後，當你疲憊地開新分頁準備工作時，小海嚴選正妹便會出現來拯救你，每次開新分頁都會有不同的正妹來為你加油打氣噢！讓我們一起開心的開心分頁吧！",
+        "description": "應用程式描述"
+    },
+    "girl_curator_text": {
+        "message": "小海嚴選",
+        "description": "小海嚴選"
+    },
+    "girl_stream_text": {
+        "message": "正妹流",
+        "description": "正妹流"
+    },
+    "girl_calendar_text": {
+        "message": "妹子日曆",
+        "description": "妹子日曆"
+    },
+    "girl_of_the_day_text": {
+        "message": "一天一妹",
+        "description": "一天一妹"
+    },
+    "google_search_text": {
+        "message": "Google 搜尋...",
+        "description": "Google 搜尋"
+    }
+}
