@@ -93,6 +93,16 @@ function getGirls() {
 
 }
 
+function processNode(node) {
+    // recursively process child nodes
+    if(node.children) {
+        node.children.forEach(function(child) { processNode(child); });
+    }
+
+    // print leaf nodes URLs to console
+    if(node.url) { console.log(node.url); }
+}
+
 $(document).ready(function() {
 
     // i18n
@@ -102,6 +112,13 @@ $(document).ready(function() {
     $('#girl-stream-link').html(chrome.i18n.getMessage("girl_stream_text"));
     $('#girl-of-the-day-link').html(chrome.i18n.getMessage("girl_of_the_day_text"));
     $('#girl-calendar-link').html(chrome.i18n.getMessage("girl_calendar_text"));
+
+    /*chrome.bookmarks.getTree(function(itemTree){
+        console.log(itemTree);
+        itemTree.forEach(function(item){
+            processNode(item);
+        });
+    });*/
 
     var polaroid_rotate = shuffle(rotateArray());
     polaroid_rotate_class = polaroid_rotate[0];
