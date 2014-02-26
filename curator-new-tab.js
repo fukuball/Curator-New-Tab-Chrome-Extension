@@ -18,6 +18,7 @@ var girl_of_the_day_name = "";
 var girl_of_the_day_image = "";
 var girl_of_the_day_url = "";
 var girl_of_the_day_date = "";
+var polaroid_rotate_class = "";
 
 function getGirlOfTheDay() {
 
@@ -71,10 +72,11 @@ function getGirlStream() {
             var girl_stream = shuffle(data.results);
             var girl_image = girl_stream[0].image;
             var girl_name = girl_stream[0].name;
+            var girl_url = girl_stream[0].url + '?utm_source=girl-stream&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
 
             $('#bg-block').css('background-image', 'url('+girl_image+')')
             $('#girl-image').attr("src", girl_image); 
-            $('#girl-name').html(girl_name); 
+            $('#girl-name').html('<a href="'+girl_url+'">'+girl_name+'</a>'); 
 
             $('#girl-photo-block').addClass("bigEntrance");
 
@@ -102,7 +104,8 @@ $(document).ready(function() {
     $('#girl-calendar-link').html(chrome.i18n.getMessage("girl_calendar_text"));
 
     var polaroid_rotate = shuffle(rotateArray());
-    $('#girl-photo-polaroid').addClass(polaroid_rotate[0]);
+    polaroid_rotate_class = polaroid_rotate[0];
+    $('#girl-photo-polaroid').addClass(polaroid_rotate_class);
 
     $(window).resize(function() {
 
@@ -149,5 +152,18 @@ $(document).ready(function() {
     });
     
     getGirls();
+
+    $(document.body).off('mouseover', '#girl-photo-block');
+    $(document.body).on('mouseover', '#girl-photo-block', function() {
+        if (!$('#girl-photo-block').hasClass('tossing')) {
+            //$('#girl-photo-polaroid').removeClass(polaroid_rotate_class);
+            $('#girl-photo-block').addClass('tossing');
+        }
+    });
+
+    $(document.body).off('mouseout', '#girl-photo-block');
+    $(document.body).on('mouseout', '#girl-photo-block', function() {
+        //$('#girl-photo-block').removeClass('tossing');
+    });
 
 });

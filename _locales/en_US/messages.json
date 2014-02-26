@@ -1,0 +1,30 @@
+{
+    "application_title": {
+        "message": "小海嚴選 CuratoR.IM Beauty Tab",
+        "description": "Application title"
+    },
+    "application_description": {
+        "message": "After installed 小海嚴選 CuratoR.IM Beauty Tab, millions of beauty will save your day when you open a new tab preparing for hard works.",
+        "description": "Application description"
+    },
+    "girl_curator_text": {
+        "message": "CuratoR.IM",
+        "description": "Curator"
+    },
+    "girl_stream_text": {
+        "message": "Girl Stream",
+        "description": "Girl stream"
+    },
+    "girl_calendar_text": {
+        "message": "Girl Calendar",
+        "description": "Girl calendar"
+    },
+    "girl_of_the_day_text": {
+        "message": "Girl of the Day",
+        "description": "Girl of the day"
+    },
+    "google_search_text": {
+        "message": "Google Search...",
+        "description": "Google search"
+    }
+}

@@ -124,6 +124,7 @@ html[xmlns] .clearfix {
     width: 400px;
     float: left;
     visibility: hidden;
+    margin-left: 10px;
 }
 #speech-input-field {
     width: 350px;
