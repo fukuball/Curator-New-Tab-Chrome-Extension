@@ -38,7 +38,7 @@ function getGirlOfTheDay() {
             girl_of_the_day_id = data.results[0].id;
             girl_of_the_day_name = data.results[0].name;
             girl_of_the_day_image = data.results[0].image;
-            girl_of_the_day_url = data.results[0].url;
+            girl_of_the_day_url = data.results[0].url + '?utm_source=girl-of-the-day&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
             girl_of_the_day_date = data.results[0].date;
 
             $('#girl-image-small').attr("src", girl_of_the_day_image); 
