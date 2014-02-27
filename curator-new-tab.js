@@ -170,7 +170,7 @@ $(document).ready(function() {
     
     getGirls();
 
-    $(document.body).off('mouseover', '#girl-photo-block');
+    /*$(document.body).off('mouseover', '#girl-photo-block');
     $(document.body).on('mouseover', '#girl-photo-block', function() {
         if (!$('#girl-photo-block').hasClass('tossing')) {
             //$('#girl-photo-polaroid').removeClass(polaroid_rotate_class);
@@ -181,6 +181,6 @@ $(document).ready(function() {
     $(document.body).off('mouseout', '#girl-photo-block');
     $(document.body).on('mouseout', '#girl-photo-block', function() {
         //$('#girl-photo-block').removeClass('tossing');
-    });
+    });*/
 
 });
