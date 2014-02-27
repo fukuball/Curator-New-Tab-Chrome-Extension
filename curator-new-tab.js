@@ -19,6 +19,7 @@ var girl_of_the_day_image = "";
 var girl_of_the_day_url = "";
 var girl_of_the_day_date = "";
 var polaroid_rotate_class = "";
+var tool_bar_open = false;
 
 function getGirlOfTheDay() {
 
@@ -103,6 +104,14 @@ function processNode(node) {
     if(node.url) { console.log(node.url); }
 }
 
+function tool_bar_oepn() {
+    $('#header-block').addClass('slideDown');
+}
+
+function tool_bar_close() {
+    $('#header-block').removeClass('slideDown');
+}
+
 $(document).ready(function() {
 
     // i18n
@@ -170,17 +179,13 @@ $(document).ready(function() {
     
     getGirls();
 
-    /*$(document.body).off('mouseover', '#girl-photo-block');
-    $(document.body).on('mouseover', '#girl-photo-block', function() {
-        if (!$('#girl-photo-block').hasClass('tossing')) {
-            //$('#girl-photo-polaroid').removeClass(polaroid_rotate_class);
-            $('#girl-photo-block').addClass('tossing');
-        }
+    $('#tool-bar-switch').switchButton({
+        labels_placement: "left",
+        on_label: '功能列開啓',
+        off_label: '功能列關閉',
+        on_callback: tool_bar_oepn,
+        off_callback: tool_bar_close
     });
 
-    $(document.body).off('mouseout', '#girl-photo-block');
-    $(document.body).on('mouseout', '#girl-photo-block', function() {
-        //$('#girl-photo-block').removeClass('tossing');
-    });*/
 
 });

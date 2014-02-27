@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>小海嚴選正妹分頁</title>
+    <link href="vendor/jQuery-switchButton/jquery.switchButton.css" rel="stylesheet">
     <link href="assets/css/animations.css" rel="stylesheet">
     <link href="curator-new-tab.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="icon.png">
   </head>
   <body lang="zh-TW">
     <div id="content-block">
@@ -39,7 +41,25 @@
                 <div>
             </div>
         </div>
+        <div id="header-block" class="clearfix">
+            <div id="header-link-block-left">
+                <a title="應用程式" class="header-link track" href="https://chrome.google.com/webstore/category/apps">
+                    <span class="header-icon">
+                    <img src="icon/chrome-web-store-icon.png">
+                    </span>
+                    <div>應用程式</div>
+                </a>
+            </div>
+            <div id="logo">
+                CuratoR.IM
+            </div>
+        </div>
         <div id="footer-block" class="clearfix">
+            <div class="footer-right">
+                <div id="tool-bar-switch">
+                    <input type="checkbox" value="1">
+                </div>
+            </div>
             <div class="footer-right">
                 <a id="girl-calendar-link" class="footer-link" href="http://curator.im/calendar/?utm_source=bottom&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab">
                     妹子日曆
@@ -63,7 +83,9 @@
         </div>
     </div>
     <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/jquery-ui-1.10.4.min.js"></script>
     <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="vendor/jQuery-switchButton/jquery.switchButton.js"></script>
     <script src="curator-new-tab.js"></script>
     <script src="google-analytics.js"></script>
   </body>

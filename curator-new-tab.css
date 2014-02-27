@@ -1,3 +1,4 @@
+/* base */
 body {
     color: #222;
     width: 100%;
@@ -8,23 +9,8 @@ a, a:hover, a:active, a:focus {
     text-decoration: none;
     outline: 0px;
 }
-.clearfix:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-}
-.clearfix {
-    display: inline-block;
-}
-html[xmlns] .clearfix {
-    display: block;
-}
-* html .clearfix {
-    height: 1%;
-}
+
+/* big background image */
 #bg-block { 
     position: fixed; 
     top: 0; 
@@ -36,27 +22,8 @@ html[xmlns] .clearfix {
     -webkit-background-size: cover;
     -webkit-filter: blur(5px);
 }
-#footer-block {
-    position: fixed; 
-    bottom: 0; 
-    left: 0;
-    z-index: 10;  
-    min-width: 100%;
-    background: rgba(242, 242, 242, 0.5);
-    border-top: 1px solid #e4e4e4;
-    font-size: small;
-    line-height: 40px;  
-}
-.footer-right {
-    margin-right: 30px;
-    float: right;
-    white-space: nowrap;
-}
-.footer-link {
-    color: #666;
-    text-decoration: none;
-    white-space: nowrap;
-}
+
+/* frame */
 #main-content-block {
     position: fixed; 
     top: 0; 
@@ -69,7 +36,7 @@ html[xmlns] .clearfix {
     width: 1000px; 
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 80px;
 }
 #girl-photo-block {
     width: 600px;
@@ -98,6 +65,32 @@ html[xmlns] .clearfix {
     width : 350px;
     vertical-align : middle;
 }
+
+/* footer block */
+#footer-block {
+    position: fixed; 
+    bottom: 0; 
+    left: 0;
+    z-index: 10;  
+    min-width: 100%;
+    background: rgba(242, 242, 242, 0.5);
+    border-top: 1px solid #e4e4e4;
+    font-size: small;
+    line-height: 40px;  
+}
+.footer-right {
+    margin-right: 30px;
+    float: right;
+    white-space: nowrap;
+    color: #666;
+}
+.footer-link {
+    color: #666;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* polaroid */
 .polaroid {
     background: #fff;
     padding: 15px 15px 10px;
@@ -120,6 +113,8 @@ html[xmlns] .clearfix {
 .polaroid-rotate-p1 {
     -webkit-transform: rotate(1deg);
 }
+
+/* search-bar-block */
 #search-bar-block {
     width: 400px;
     float: left;
@@ -136,9 +131,106 @@ html[xmlns] .clearfix {
     outline: 0;
     margin: 15px;
 }
-.text-center {
-    text-align: center;
-}
 #speech-input-field::-webkit-input-placeholder {
     font-size: 20px;
+}
+
+/* switch button */
+.switch-button-background {
+    margin-top: 11px;
+    margin-left: 5px;
+}
+.switch-button-label.off {
+    color: #666;
+}
+
+/* logo */
+#logo {
+    font-size: 20px;
+    margin-right: 6px;
+    color: #777;
+    text-shadow: 0 1px 0 #999;
+    float: right;
+    font-weight: bold;
+}
+
+/* header block */
+#header-block {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    z-index: 10;  
+    min-width: 100%;
+    background: rgba(242, 242, 242, 0.5);
+    border-top: 1px solid #e4e4e4;
+    font-size: small;
+    line-height: 40px;
+    height: 40px;  
+    visibility: hidden; 
+}
+
+#header-link-block-left {
+    float: left;
+    width: 100px;
+    margin: 6px;
+}
+#header-link-block-right {
+    float: right;
+    width: 100px;
+    margin: 6px;
+}
+.header-link {
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   -ms-border-radius: 4px;
+   -o-border-radius: 4px;
+   border-radius: 4px;
+   height: 28px;
+   line-height: 28px;
+   text-align: left;
+   font-size: 14px;
+   color: #eee;
+   display: block;
+   background: rgba(102, 102, 102, 0.5);
+}
+a.header-link:hover {
+   color: #eee;
+   background: rgba(153, 153, 153, 0.5);
+   text-decoration: none;
+}
+.header-link .header-icon {
+   background: #000;
+}
+.header-link img {
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -ms-border-radius: 3px;
+   -o-border-radius: 3px;
+   border-radius: 3px;
+   margin: 6px 8px 0 5px;
+   float: left;
+   width: 16px;
+   height: 16px;
+}
+
+/* utility */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+html[xmlns] .clearfix {
+    display: block;
+}
+* html .clearfix {
+    height: 1%;
+}
+.text-center {
+    text-align: center;
 }
