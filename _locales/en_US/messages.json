@@ -26,5 +26,9 @@
     "google_search_text": {
         "message": "Google Search...",
         "description": "Google search"
+    },
+    "web_store_link_text": {
+        "message": "Web Store",
+        "description": "Web Store"
     }
 }

@@ -171,12 +171,12 @@ a, a:hover, a:active, a:focus {
 
 #header-link-block-left {
     float: left;
-    width: 100px;
+    width: 110px;
     margin: 6px;
 }
 #header-link-block-right {
     float: right;
-    width: 100px;
+    width: 110px;
     margin: 6px;
 }
 .header-link {

@@ -26,5 +26,9 @@
     "google_search_text": {
         "message": "Google 搜寻...",
         "description": "Google 搜寻"
+    },
+    "web_store_link_text": {
+        "message": "应用程式",
+        "description": "应用程式"
     }
 }

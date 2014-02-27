@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>小海嚴選正妹分頁</title>
     <link href="vendor/jQuery-switchButton/jquery.switchButton.css" rel="stylesheet">
+    <link href="vendor/Hover/css/hover-min.css" rel="stylesheet">
     <link href="assets/css/animations.css" rel="stylesheet">
     <link href="curator-new-tab.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="icon.png">
@@ -15,16 +16,20 @@
         <div id="main-content-block" class="clearfix">
             <div id="main-content-inner">
                 <div class="clearfix">
+                    
                     <div id="girl-photo-block">
-                        <div id="girl-photo-polaroid" class="polaroid">
-                            <div class="image-frame">
-                                <img id="girl-image" src="assets/img/bg-girl.jpg" />
+                        <a rel="wobble-bottom" class="pop">
+                            <div id="girl-photo-polaroid" class="polaroid">   
+                                <div class="image-frame">
+                                    <img id="girl-image" src="assets/img/bg-girl.jpg" />
+                                </div>
+                                <div>
+                                    <h3 id="girl-name"></h3>
+                                </div>
                             </div>
-                            <div>
-                                <h3 id="girl-name"></h3>
-                            </div>
-                        </div>
+                        </a>
                     </div>
+                    
                     <div id="search-bar-block">
                         <form name="google_search_form" id="google-search-form" action="" method="GET">
                             <input id="speech-input-field" type="text" placeholder="Google 搜尋..." x-webkit-speech />
@@ -43,11 +48,11 @@
         </div>
         <div id="header-block" class="clearfix">
             <div id="header-link-block-left">
-                <a title="應用程式" class="header-link track" href="https://chrome.google.com/webstore/category/apps">
+                <a class="header-link track" href="https://chrome.google.com/webstore/category/apps">
                     <span class="header-icon">
                     <img src="icon/chrome-web-store-icon.png">
                     </span>
-                    <div>應用程式</div>
+                    <div id="web-store-link-text">應用程式</div>
                 </a>
             </div>
             <div id="logo">

@@ -121,6 +121,7 @@ $(document).ready(function() {
     $('#girl-stream-link').html(chrome.i18n.getMessage("girl_stream_text"));
     $('#girl-of-the-day-link').html(chrome.i18n.getMessage("girl_of_the_day_text"));
     $('#girl-calendar-link').html(chrome.i18n.getMessage("girl_calendar_text"));
+    $('#web-store-link-text').html(chrome.i18n.getMessage("web_store_link_text"));
 
     /*chrome.bookmarks.getTree(function(itemTree){
         console.log(itemTree);

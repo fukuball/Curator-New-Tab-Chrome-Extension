@@ -26,5 +26,9 @@
     "google_search_text": {
         "message": "Google 搜尋...",
         "description": "Google 搜尋"
+    },
+    "web_store_link_text": {
+        "message": "應用程式",
+        "description": "應用程式"
     }
 }
