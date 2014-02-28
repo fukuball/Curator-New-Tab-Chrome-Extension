@@ -30,5 +30,17 @@
     "web_store_link_text": {
         "message": "Web Store",
         "description": "Web Store"
+    },
+    "top_sites_link_text": {
+        "message": "Top Sites",
+        "description": "Top Sites"
+    },
+    "tool_bar_open": {
+        "message": "Tool Bar Open",
+        "description": "Tool Bar Open"
+    },
+    "tool_bar_close": {
+        "message": "Tool Bar Close",
+        "description": "Tool Bar Close"
     }
 }

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_application_title__",
   "description": "__MSG_application_description__",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "default_locale": "zh_TW",
   "icons": { "128": "icon.png" },
   "author": "fukuball",
@@ -14,7 +14,8 @@
   },
   "permissions": [
     "http://curator.im/",
-    "bookmarks"
+    "bookmarks",
+    "topSites"
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }

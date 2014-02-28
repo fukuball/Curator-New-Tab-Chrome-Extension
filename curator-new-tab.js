@@ -81,6 +81,11 @@ function getGirlStream() {
 
             $('#girl-photo-block').addClass("bigEntrance");
 
+            $('#girl-photo-block').imagesLoaded( function() {
+                $(".spinner").removeClass("animated fadeIn");
+                $(".spinner").addClass("animated fadeOut");
+            });
+
         }
 
     });
@@ -122,13 +127,42 @@ $(document).ready(function() {
     $('#girl-of-the-day-link').html(chrome.i18n.getMessage("girl_of_the_day_text"));
     $('#girl-calendar-link').html(chrome.i18n.getMessage("girl_calendar_text"));
     $('#web-store-link-text').html(chrome.i18n.getMessage("web_store_link_text"));
+    $('#top-sites-link-text').html(chrome.i18n.getMessage("top_sites_link_text"));
 
+    // get bookmarks
     /*chrome.bookmarks.getTree(function(itemTree){
         console.log(itemTree);
         itemTree.forEach(function(item){
             processNode(item);
         });
     });*/
+
+    // get top sites
+    chrome.topSites.get(function(itemTree) {
+        console.log(itemTree);
+        var site_count = 1;
+
+        itemTree.forEach(function(item) {
+
+            if (site_count<=5) {
+
+                $('#content-block').append (
+                    '<div class="boxgrid slideright top-sites-block-fixed">'+
+                        '<img class="cover" src="http://api.webthumbnail.org/?width=250&height=200&screen=1024&url='+item.url+'"/>'+
+                        '<h3>'+
+                            '<a href="'+item.url+'">'+
+                                'Top '+site_count+': '+item.title+
+                            '</a>'+
+                        '</h3>'+
+                    '</div>'
+                );
+            }
+
+            site_count++;
+
+        });
+        
+    });
 
     var polaroid_rotate = shuffle(rotateArray());
     polaroid_rotate_class = polaroid_rotate[0];
@@ -182,11 +216,39 @@ $(document).ready(function() {
 
     $('#tool-bar-switch').switchButton({
         labels_placement: "left",
-        on_label: '功能列開啓',
-        off_label: '功能列關閉',
+        on_label: chrome.i18n.getMessage("tool_bar_open"),
+        off_label: chrome.i18n.getMessage("tool_bar_close"),
         on_callback: tool_bar_oepn,
         off_callback: tool_bar_close
     });
 
+    $(document.body).on('click', '#top-site-gravity', function() {
+        
+        $(".spinner").removeClass("animated fadeOut");
+        $(".spinner").addClass("animated fadeIn");
+        $(this).addClass("animated bounceOutDown");
+
+        $('body').jGravity({ // jGravity works best when targeting the body
+            target: '.top-sites-block-fixed', // Enter your target critera e.g. 'div, p, span', 'h2' or 'div#specificDiv', or even 'everything' to target everything in the body
+            ignoreClass: 'ignoreMe', // Specify if you would like to use an ignore class, and then specify the class
+            weight: 25, // Enter any number 1-100 ideally (25 is default), you can also use 'heavy' or 'light'
+            depth: 5, // Enter a value between 1-10 ideally (1 is default), this is used to prevent targeting structural divs or other items which may break layout in jGravity
+            drag: true // Decide if users can drag elements which have been effected by jGravity
+        });
+
+        $('.top-sites-block-fixed').css('visibility', 'visible');
+
+        setTimeout(function () {
+            $(".spinner").removeClass("animated fadeIn");
+            $(".spinner").addClass("animated fadeOut");
+        }, 3000);
+
+        $('.boxgrid.slideright').hover(function(){
+            $(".cover", this).stop().animate({left:'250px'},{queue:false,duration:300});
+        }, function() {
+            $(".cover", this).stop().animate({left:'0px'},{queue:false,duration:300});
+        });
+
+    });
 
 });

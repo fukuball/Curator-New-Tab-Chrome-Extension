@@ -5,6 +5,7 @@
     <title>小海嚴選正妹分頁</title>
     <link href="vendor/jQuery-switchButton/jquery.switchButton.css" rel="stylesheet">
     <link href="vendor/Hover/css/hover-min.css" rel="stylesheet">
+    <link href="vendor/animate/animate.css" rel="stylesheet">
     <link href="assets/css/animations.css" rel="stylesheet">
     <link href="curator-new-tab.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="icon.png">
@@ -47,12 +48,20 @@
             </div>
         </div>
         <div id="header-block" class="clearfix">
-            <div id="header-link-block-left">
+            <div class="header-link-block-left">
                 <a class="header-link track" href="https://chrome.google.com/webstore/category/apps">
                     <span class="header-icon">
                     <img src="icon/chrome-web-store-icon.png">
                     </span>
                     <div id="web-store-link-text">應用程式</div>
+                </a>
+            </div>
+            <div class="header-link-block-left">
+                <a id="top-site-gravity" class="header-link track" href="#">
+                    <span class="header-icon">
+                    <img src="icon/hot-icon.png">
+                    </span>
+                    <div id="top-sites-link-text">常用網站</div>
                 </a>
             </div>
             <div id="logo">
@@ -86,10 +95,18 @@
                 </a>
             </div>
         </div>
+        <div class="spinner animated fadeIn">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
     </div>
     <script src="assets/js/jquery-2.1.0.min.js"></script>
     <script src="assets/js/jquery-ui-1.10.4.min.js"></script>
     <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="vendor/jGravity/jGravity-min.js"></script>
     <script src="vendor/jQuery-switchButton/jquery.switchButton.js"></script>
     <script src="curator-new-tab.js"></script>
     <script src="google-analytics.js"></script>

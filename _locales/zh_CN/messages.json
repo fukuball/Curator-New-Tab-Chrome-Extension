@@ -30,5 +30,17 @@
     "web_store_link_text": {
         "message": "应用程式",
         "description": "应用程式"
+    },
+    "top_sites_link_text": {
+        "message": "常用网站",
+        "description": "常用网站"
+    },
+    "tool_bar_open": {
+        "message": "功能列开启",
+        "description": "功能列开启"
+    },
+    "tool_bar_close": {
+        "message": "功能列关闭",
+        "description": "功能列关闭"
     }
 }
