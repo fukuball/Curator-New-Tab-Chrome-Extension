@@ -21,43 +21,78 @@ var girl_of_the_day_date = "";
 var polaroid_rotate_class = "";
 var tool_bar_open = false;
 
+
+function updateGirlOfTheDayView(girl_of_the_day) {
+    girl_of_the_day_id = girl_of_the_day.id;
+    girl_of_the_day_name = girl_of_the_day.name;
+    girl_of_the_day_image = girl_of_the_day.image;
+    girl_of_the_day_url = girl_of_the_day.url + '?utm_source=girl-of-the-day&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
+    girl_of_the_day_date = girl_of_the_day.date;
+
+    $('#girl-image-small').attr("src", girl_of_the_day_image); 
+    $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
+
+    $('#search-bar-block').addClass("bigEntrance");
+}
+
 function getGirlOfTheDay() {
 
-    $.ajax({
-    
-        url: "http://curator.im/api/girl_of_the_day/",
-        type: "GET",
-        data: {
-            token : "53b7c0f21db84334b9aaaaccb7d2538e",
-            format : "json",
-        },
-        dataType: "json",
-        beforeSend: function( xhr ) {
-            //console.log('loading');
-        },
-        success: function(data) {
+    var lastDay = localStorage.getItem('last_day');
+    var girl_of_the_day = JSON.parse(localStorage.getItem('girl_of_the_day'));
+    var date = new Date();
+    if (lastDay || !girl_of_the_day || date.getDate().toString() != lastDay) {
 
-            girl_of_the_day_id = data.results[0].id;
-            girl_of_the_day_name = data.results[0].name;
-            girl_of_the_day_image = data.results[0].image;
-            girl_of_the_day_url = data.results[0].url + '?utm_source=girl-of-the-day&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
-            girl_of_the_day_date = data.results[0].date;
+        $.ajax({
+        
+            url: "http://curator.im/api/girl_of_the_day/",
+            type: "GET",
+            data: {
+                token : "53b7c0f21db84334b9aaaaccb7d2538e",
+                format : "json",
+            },
+            dataType: "json",
+            beforeSend: function( xhr ) {
+                //console.log('loading');
+            },
+            success: function(data) {
 
-            $('#girl-image-small').attr("src", girl_of_the_day_image); 
-            $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
+                girl_of_the_day = data.results[0];
+                updateGirlOfTheDayView(girl_of_the_day);
+                chrome.extension.getBackgroundPage().document.getElementById('girl-of-the-day-image').src = girl_of_the_day.image;
+                localStorage.setItem('last_day', date.getDate().toString());
+                localStorage.setItem('girl_of_the_day', JSON.stringify(girl_of_the_day));
 
-            $('#search-bar-block').addClass("bigEntrance");
+            }
 
-        }
+        });
+    }
+    else {
+        updateGirlOfTheDayView(girl_of_the_day);
+    }
 
+    date.destroy();
+}
+
+function updateGirlStreamView(girl_stream) {
+    var girl_image = girl_stream.image;
+    var girl_name = girl_stream.name;
+    var girl_url = girl_stream.url + '?utm_source=girl-stream&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
+
+    $('#bg-block').css('background-image', 'url('+girl_image+')')
+    $('#girl-image').attr("src", girl_image); 
+    $('#girl-name').html('<a href="'+girl_url+'">'+girl_name+'</a>'); 
+
+    $('#girl-photo-block').addClass("bigEntrance");
+
+    $('#girl-photo-block').imagesLoaded( function() {
+    $(".spinner").removeClass("animated fadeIn");
+    $(".spinner").addClass("animated fadeOut");
     });
 
 }
 
-function getGirlStream() {
-
+function updateGirlStreamData() {
     $.ajax({
-    
         url: "http://curator.im/api/stream/",
         type: "GET",
         data: {
@@ -65,31 +100,35 @@ function getGirlStream() {
             format : "json",
         },
         dataType: "json",
-        beforeSend: function( xhr ) {
-            //console.log('loading');
-        },
         success: function(data) {
-            
-            var girl_stream = shuffle(data.results);
-            var girl_image = girl_stream[0].image;
-            var girl_name = girl_stream[0].name;
-            var girl_url = girl_stream[0].url + '?utm_source=girl-stream&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
-
-            $('#bg-block').css('background-image', 'url('+girl_image+')')
-            $('#girl-image').attr("src", girl_image); 
-            $('#girl-name').html('<a href="'+girl_url+'">'+girl_name+'</a>'); 
-
-            $('#girl-photo-block').addClass("bigEntrance");
-
-            $('#girl-photo-block').imagesLoaded( function() {
-                $(".spinner").removeClass("animated fadeIn");
-                $(".spinner").addClass("animated fadeOut");
-            });
-
+            localStorage.setItem('girl_stream', JSON.stringify(data));
+            localStorage.setItem('girl_stream_id', '0');
         }
-
     });
+}
 
+function getGirlStream() {
+    var predata = localStorage.getItem('girl_stream');
+    var preGirlStreamId = localStorage.getItem('girl_stream_id');
+    if (!predata) {
+        updateGirlStreamData();
+        predata = localStorage.getItem('girl_stream');
+        preGirlStreamId = localStorage.getItem('girl_stream_id');
+    }
+
+    if (predata){
+        var data = JSON.parse(predata);
+        var id = parseInt(preGirlStreamId);
+        updateGirlStreamView(data.results[id]);
+        id = id + 1;
+        if (id >= data.results.length) {
+            updateGirlStreamData();
+        }
+        else {
+            localStorage.setItem('girl_stream_id', id.toString());
+            chrome.extension.getBackgroundPage().document.getElementById('girl-stream-image').src = data.results[id].image;
+        }     
+    } 
 }
 
 function getGirls() {
@@ -204,7 +243,7 @@ $(document).ready(function() {
     //callback handler for form submit
     $("#google-search-form").submit(function(e) {
         
-        var google_search = "http://www.google.com.tw/#q="+$('#speech-input-field').val();
+        var google_search = "https://www.google.com/#q="+$('#speech-input-field').val();
         window.location = google_search;
         
         e.preventDefault(); //STOP default action

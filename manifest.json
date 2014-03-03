@@ -10,7 +10,7 @@
     "newtab": "curator-new-tab.html"
   },
   "background": {
-    "scripts": ["curator-new-tab-background.js"]
+    "page": "background.html"
   },
   "permissions": [
     "http://curator.im/",
