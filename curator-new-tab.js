@@ -21,7 +21,6 @@ var girl_of_the_day_date = "";
 var polaroid_rotate_class = "";
 var tool_bar_open = false;
 
-
 function updateGirlOfTheDayView(girl_of_the_day) {
     girl_of_the_day_id = girl_of_the_day.id;
     girl_of_the_day_name = girl_of_the_day.name;
@@ -40,6 +39,7 @@ function getGirlOfTheDay() {
     var lastDay = localStorage.getItem('last_day');
     var girl_of_the_day = JSON.parse(localStorage.getItem('girl_of_the_day'));
     var date = new Date();
+
     if (lastDay || !girl_of_the_day || date.getDate().toString() != lastDay) {
 
         $.ajax({
@@ -65,12 +65,15 @@ function getGirlOfTheDay() {
             }
 
         });
-    }
-    else {
+
+    } else {
+        
         updateGirlOfTheDayView(girl_of_the_day);
+    
     }
 
-    date.destroy();
+    //date.destroy();
+
 }
 
 function updateGirlStreamView(girl_stream) {
@@ -85,8 +88,8 @@ function updateGirlStreamView(girl_stream) {
     $('#girl-photo-block').addClass("bigEntrance");
 
     $('#girl-photo-block').imagesLoaded( function() {
-    $(".spinner").removeClass("animated fadeIn");
-    $(".spinner").addClass("animated fadeOut");
+        $(".spinner").removeClass("animated fadeIn");
+        $(".spinner").addClass("animated fadeOut");
     });
 
 }
@@ -101,33 +104,36 @@ function updateGirlStreamData() {
         },
         dataType: "json",
         success: function(data) {
+            updateGirlStreamView(data.results[0]);
             localStorage.setItem('girl_stream', JSON.stringify(data));
-            localStorage.setItem('girl_stream_id', '0');
+            localStorage.setItem('girl_stream_id', '1');
         }
     });
 }
 
 function getGirlStream() {
+    
     var predata = localStorage.getItem('girl_stream');
     var preGirlStreamId = localStorage.getItem('girl_stream_id');
+    
     if (!predata) {
-        updateGirlStreamData();
-        predata = localStorage.getItem('girl_stream');
-        preGirlStreamId = localStorage.getItem('girl_stream_id');
-    }
 
-    if (predata){
+        updateGirlStreamData();
+    
+    } else {
+        
         var data = JSON.parse(predata);
         var id = parseInt(preGirlStreamId);
         updateGirlStreamView(data.results[id]);
         id = id + 1;
+        
         if (id >= data.results.length) {
             updateGirlStreamData();
-        }
-        else {
+        } else {
             localStorage.setItem('girl_stream_id', id.toString());
             chrome.extension.getBackgroundPage().document.getElementById('girl-stream-image').src = data.results[id].image;
-        }     
+        } 
+
     } 
 }
 
