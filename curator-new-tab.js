@@ -19,7 +19,6 @@ var girl_of_the_day_image = "";
 var girl_of_the_day_url = "";
 var girl_of_the_day_date = "";
 var polaroid_rotate_class = "";
-var tool_bar_open = false;
 
 function updateGirlOfTheDayView(girl_of_the_day) {
     girl_of_the_day_id = girl_of_the_day.id;
@@ -154,12 +153,14 @@ function processNode(node) {
     if(node.url) { console.log(node.url); }
 }
 
-function tool_bar_oepn() {
+function tool_bar_open() {
     $('#header-block').addClass('slideDown');
+    localStorage.show_toolbar = 'true';
 }
 
 function tool_bar_close() {
     $('#header-block').removeClass('slideDown');
+    localStorage.show_toolbar = 'false';
 }
 
 $(document).ready(function() {
@@ -260,10 +261,11 @@ $(document).ready(function() {
     getGirls();
 
     $('#tool-bar-switch').switchButton({
+        checked: "true" == localStorage.getItem('show_toolbar'), //default null
         labels_placement: "left",
         on_label: chrome.i18n.getMessage("tool_bar_open"),
         off_label: chrome.i18n.getMessage("tool_bar_close"),
-        on_callback: tool_bar_oepn,
+        on_callback: tool_bar_open,
         off_callback: tool_bar_close
     });
 
