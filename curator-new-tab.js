@@ -40,7 +40,7 @@ function getGirlOfTheDay() {
     var girl_of_the_day = JSON.parse(localStorage.getItem('girl_of_the_day'));
     var date = new Date();
 
-    if (lastDay || !girl_of_the_day || date.getDate().toString() != lastDay) {
+    if (!lastDay || !girl_of_the_day || date.getDate().toString() != lastDay) {
 
         $.ajax({
         
