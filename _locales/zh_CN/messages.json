@@ -1,11 +1,11 @@
 {
     "application_title": {
         "message": "小海严选正妹分页",
-        "description": "应用程式名称"
+        "description": "应用程序名称"
     },
     "application_description": {
         "message": "小海严选正妹分页是一个 Chrome Extension 应用，安装小海严选正妹分页后，当你疲惫地开新分页准备工作时，小海严选正妹便会出现来拯救你，每次开新分页都会有不同的正妹来为你加油打气噢！让我们一起开心的开心分页吧！",
-        "description": "应用程式描述"
+        "description": "应用程序描述"
     },
     "girl_curator_text": {
         "message": "小海严选",
@@ -24,23 +24,23 @@
         "description": "一天一妹"
     },
     "google_search_text": {
-        "message": "Google 搜寻...",
-        "description": "Google 搜寻"
+        "message": "Google 搜索...",
+        "description": "Google 搜索"
     },
     "web_store_link_text": {
-        "message": "应用程式",
-        "description": "应用程式"
+        "message": "应用商店",
+        "description": "应用商店"
     },
     "top_sites_link_text": {
-        "message": "常用网站",
-        "description": "常用网站"
+        "message": "最常访问",
+        "description": "最常访问"
     },
     "tool_bar_open": {
-        "message": "功能列开启",
-        "description": "功能列开启"
+        "message": "工具条开启",
+        "description": "工具条开启"
     },
     "tool_bar_close": {
-        "message": "功能列关闭",
-        "description": "功能列关闭"
+        "message": "工具条关闭",
+        "description": "工具条关闭"
     }
 }
