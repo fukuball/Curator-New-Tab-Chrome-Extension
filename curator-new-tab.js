@@ -12,6 +12,13 @@ function rotateArray() {
     ];
 }
 
+function processNode(node) {
+    if(node.children) {
+        node.children.forEach(function(child) { processNode(child); });
+    }
+    if(node.url) { console.log(node.url); }
+}
+
 var girl_of_the_day_id = 0;
 var girl_of_the_day_name = "";
 var girl_of_the_day_image = "";
@@ -20,6 +27,7 @@ var girl_of_the_day_date = "";
 var polaroid_rotate_class = "";
 
 function updateGirlOfTheDayView(girl_of_the_day) {
+
     girl_of_the_day_id = girl_of_the_day.id;
     girl_of_the_day_name = girl_of_the_day.name;
     girl_of_the_day_image = girl_of_the_day.image;
@@ -30,6 +38,7 @@ function updateGirlOfTheDayView(girl_of_the_day) {
     $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
 
     $('#search-bar-block').addClass("bigEntrance");
+
 }
 
 function getGirlOfTheDay() {
@@ -75,6 +84,7 @@ function getGirlOfTheDay() {
 }
 
 function updateGirlStreamView(girl_stream) {
+
     var girl_image = girl_stream.image;
     var girl_name = girl_stream.name;
     var girl_url = girl_stream.url + '?utm_source=girl-stream&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
@@ -93,6 +103,7 @@ function updateGirlStreamView(girl_stream) {
 }
 
 function updateGirlStreamData() {
+
     $.ajax({
         url: "http://curator.im/api/stream/",
         type: "GET",
@@ -107,6 +118,7 @@ function updateGirlStreamData() {
             localStorage.setItem('girl_stream_id', '1');
         }
     });
+
 }
 
 function getGirlStream() {
@@ -142,16 +154,6 @@ function getGirls() {
 
 }
 
-function processNode(node) {
-    // recursively process child nodes
-    if(node.children) {
-        node.children.forEach(function(child) { processNode(child); });
-    }
-
-    // print leaf nodes URLs to console
-    if(node.url) { console.log(node.url); }
-}
-
 function tool_bar_open() {
     $('#header-block').addClass('slideDown');
     localStorage.show_toolbar = 'true';
@@ -174,10 +176,15 @@ $(document).ready(function() {
     $('#web-store-link-text').html(chrome.i18n.getMessage("web_store_link_text"));
     $('#top-sites-link-text').html(chrome.i18n.getMessage("top_sites_link_text"));
 
+    // add random rotate
     var polaroid_rotate = shuffle(rotateArray());
     polaroid_rotate_class = polaroid_rotate[0];
     $('#girl-photo-polaroid').addClass(polaroid_rotate_class);
 
+    // get girl data
+    getGirls();
+
+    // resize layout
     $(window).resize(function() {
 
         var window_height = $(window).height();
@@ -208,22 +215,17 @@ $(document).ready(function() {
         $('.image-frame-small img').width(right_width-55);   
 
     });
-
     $(window).trigger('resize');
 
-    //callback handler for form submit
+    // callback handler for google search form submit
     $("#google-search-form").submit(function(e) {
-        
         var google_search = "https://www.google.com/#q="+$('#speech-input-field').val();
-        window.location = google_search;
-        
+        window.location = google_search;      
         e.preventDefault(); //STOP default action
         e.unbind(); //unbind. to stop multiple form submit.
-    
     });
-    
-    getGirls();
 
+    // switch button
     $('#tool-bar-switch').switchButton({
         checked: "true" == localStorage.getItem('show_toolbar'), //default null
         labels_placement: "left",
@@ -233,6 +235,7 @@ $(document).ready(function() {
         off_callback: tool_bar_close
     });
 
+    // top site gravity button
     $(document.body).on('click', '#top-site-gravity', function() {
         
         $(".spinner").removeClass("animated fadeOut");
@@ -259,6 +262,18 @@ $(document).ready(function() {
         }, function() {
             $(".cover", this).stop().animate({left:'0px'},{queue:false,duration:300});
         });
+
+    });
+
+    // link click event to ga
+    $(document.body).on('click', '.ga-link', function() {
+
+        var category = $(this).attr("data-category");
+        var label = $(this).attr("data-label");
+        console.log(category);
+        console.log(label);
+
+        _gaq.push(['_trackEvent', category, 'Clicked', label]);
 
     });
 
@@ -294,7 +309,7 @@ $(document).ready(function() {
             site_count++;
 
         });
-        
+
     });
 
 });
