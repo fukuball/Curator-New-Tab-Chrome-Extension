@@ -174,41 +174,6 @@ $(document).ready(function() {
     $('#web-store-link-text').html(chrome.i18n.getMessage("web_store_link_text"));
     $('#top-sites-link-text').html(chrome.i18n.getMessage("top_sites_link_text"));
 
-    // get bookmarks
-    /*chrome.bookmarks.getTree(function(itemTree){
-        console.log(itemTree);
-        itemTree.forEach(function(item){
-            processNode(item);
-        });
-    });*/
-
-    // get top sites
-    chrome.topSites.get(function(itemTree) {
-        console.log(itemTree);
-        var site_count = 1;
-
-        itemTree.forEach(function(item) {
-
-            if (site_count<=5) {
-
-                $('#content-block').append (
-                    '<div class="boxgrid slideright top-sites-block-fixed">'+
-                        '<img class="cover" src="http://api.webthumbnail.org/?width=250&height=200&screen=1024&url='+item.url+'"/>'+
-                        '<h3>'+
-                            '<a href="'+item.url+'">'+
-                                'Top '+site_count+': '+item.title+
-                            '</a>'+
-                        '</h3>'+
-                    '</div>'
-                );
-            }
-
-            site_count++;
-
-        });
-        
-    });
-
     var polaroid_rotate = shuffle(rotateArray());
     polaroid_rotate_class = polaroid_rotate[0];
     $('#girl-photo-polaroid').addClass(polaroid_rotate_class);
@@ -295,6 +260,41 @@ $(document).ready(function() {
             $(".cover", this).stop().animate({left:'0px'},{queue:false,duration:300});
         });
 
+    });
+
+    // get bookmarks
+    /*chrome.bookmarks.getTree(function(itemTree){
+        console.log(itemTree);
+        itemTree.forEach(function(item){
+            processNode(item);
+        });
+    });*/
+
+    // get top sites
+    chrome.topSites.get(function(itemTree) {
+        
+        var site_count = 1;
+
+        itemTree.forEach(function(item) {
+
+            if (site_count<=5) {
+
+                $('#content-block').append (
+                    '<div class="boxgrid slideright top-sites-block-fixed">'+
+                        '<img class="cover" src="http://api.webthumbnail.org/?width=250&height=200&screen=1024&url='+item.url+'"/>'+
+                        '<h3>'+
+                            '<a href="'+item.url+'">'+
+                                'Top '+site_count+': '+item.title+
+                            '</a>'+
+                        '</h3>'+
+                    '</div>'
+                );
+            }
+
+            site_count++;
+
+        });
+        
     });
 
 });
