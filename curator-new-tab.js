@@ -35,7 +35,7 @@ function updateGirlOfTheDayView(girl_of_the_day) {
     girl_of_the_day_date = girl_of_the_day.date;
 
     $('#girl-image-small').attr("src", girl_of_the_day_image); 
-    $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
+    $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'" class="ga-link" data-category="Link" data-label="Girl Of The Day Link : '+girl_of_the_day_name+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
 
     $('#search-bar-block').addClass("bigEntrance");
 
@@ -91,7 +91,7 @@ function updateGirlStreamView(girl_stream) {
 
     $('#bg-block').css('background-image', 'url('+girl_image+')')
     $('#girl-image').attr("src", girl_image); 
-    $('#girl-name').html('<a href="'+girl_url+'">'+girl_name+'</a>'); 
+    $('#girl-name').html('<a href="'+girl_url+'" class="ga-link" data-category="Link" data-label="Girl Stream Link : '+girl_name+'">'+girl_name+'</a>'); 
 
     $('#girl-photo-block').addClass("bigEntrance");
 
@@ -157,11 +157,13 @@ function getGirls() {
 function tool_bar_open() {
     $('#header-block').addClass('slideDown');
     localStorage.show_toolbar = 'true';
+    _gaq.push(['_trackEvent', 'Switch', 'Open', 'Tool Bar Switch']);
 }
 
 function tool_bar_close() {
     $('#header-block').removeClass('slideDown');
     localStorage.show_toolbar = 'false';
+    _gaq.push(['_trackEvent', 'Switch', 'Close', 'Tool Bar Switch']);
 }
 
 $(document).ready(function() {
@@ -220,7 +222,8 @@ $(document).ready(function() {
     // callback handler for google search form submit
     $("#google-search-form").submit(function(e) {
         var google_search = "https://www.google.com/#q="+$('#speech-input-field').val();
-        window.location = google_search;      
+        window.location = google_search;
+        _gaq.push(['_trackEvent', 'Search', 'Submit', 'Search Bar']);
         e.preventDefault(); //STOP default action
         e.unbind(); //unbind. to stop multiple form submit.
     });
@@ -270,8 +273,6 @@ $(document).ready(function() {
 
         var category = $(this).attr("data-category");
         var label = $(this).attr("data-label");
-        console.log(category);
-        console.log(label);
 
         _gaq.push(['_trackEvent', category, 'Clicked', label]);
 
