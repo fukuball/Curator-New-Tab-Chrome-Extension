@@ -19,20 +19,13 @@ function processNode(node) {
     if(node.url) { console.log(node.url); }
 }
 
-var girl_of_the_day_id = 0;
-var girl_of_the_day_name = "";
-var girl_of_the_day_image = "";
-var girl_of_the_day_url = "";
-var girl_of_the_day_date = "";
-var polaroid_rotate_class = "";
-
 function updateGirlOfTheDayView(girl_of_the_day) {
 
-    girl_of_the_day_id = girl_of_the_day.id;
-    girl_of_the_day_name = girl_of_the_day.name;
-    girl_of_the_day_image = girl_of_the_day.image;
-    girl_of_the_day_url = girl_of_the_day.url + '?utm_source=girl-of-the-day&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
-    girl_of_the_day_date = girl_of_the_day.date;
+    var girl_of_the_day_id = girl_of_the_day.id;
+    var girl_of_the_day_name = girl_of_the_day.name;
+    var girl_of_the_day_image = girl_of_the_day.image;
+    var girl_of_the_day_url = 'http://curator.im/girl_of_the_day/?utm_source=girl-of-the-day&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
+    var girl_of_the_day_date = girl_of_the_day.date;
 
     $('#girl-image-small').attr("src", girl_of_the_day_image); 
     $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'" class="ga-link" data-category="Link" data-label="Girl Of The Day Link : '+girl_of_the_day_name+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
@@ -45,13 +38,17 @@ function getGirlOfTheDay() {
 
     var lastDay = localStorage.getItem('last_day');
     var girl_of_the_day = JSON.parse(localStorage.getItem('girl_of_the_day'));
-    var date = new Date();
 
-    if (!lastDay || !girl_of_the_day || date.getDate().toString() != lastDay) {
+    var date = new Date();
+    var dateISO = date.toISOString();
+    var dateISO_array = dateISO.split("T");
+    var current_date = dateISO_array[0];
+
+    if (!lastDay || !girl_of_the_day || current_date != lastDay) {
 
         $.ajax({
         
-            url: "http://curator.im/api/girl_of_the_day/",
+            url: "http://curator.im/api/girl_of_the_day/"+current_date+"/",
             type: "GET",
             data: {
                 token : "53b7c0f21db84334b9aaaaccb7d2538e",
@@ -63,10 +60,11 @@ function getGirlOfTheDay() {
             },
             success: function(data) {
 
-                girl_of_the_day = data.results[0];
+                girl_of_the_day = data[0];
+                girl_of_the_day.date = current_date;
                 updateGirlOfTheDayView(girl_of_the_day);
                 chrome.extension.getBackgroundPage().document.getElementById('girl-of-the-day-image').src = girl_of_the_day.image;
-                localStorage.setItem('last_day', date.getDate().toString());
+                localStorage.setItem('last_day', current_date);
                 localStorage.setItem('girl_of_the_day', JSON.stringify(girl_of_the_day));
 
             }
@@ -180,7 +178,7 @@ $(document).ready(function() {
 
     // add random rotate
     var polaroid_rotate = shuffle(rotateArray());
-    polaroid_rotate_class = polaroid_rotate[0];
+    var polaroid_rotate_class = polaroid_rotate[0];
     $('#girl-photo-polaroid').addClass(polaroid_rotate_class);
 
     // get girl data
