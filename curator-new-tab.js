@@ -24,8 +24,8 @@ function updateGirlOfTheDayView(girl_of_the_day) {
     var girl_of_the_day_id = girl_of_the_day.id;
     var girl_of_the_day_name = girl_of_the_day.name;
     var girl_of_the_day_image = girl_of_the_day.image;
-    var girl_of_the_day_url = 'http://curator.im/girl_of_the_day/?utm_source=girl-of-the-day&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
     var girl_of_the_day_date = girl_of_the_day.date;
+    var girl_of_the_day_url = 'http://curator.im/girl_of_the_day/'+girl_of_the_day_date+'/?utm_source=girl-of-the-day&utm_medium=new-tab&utm_campaign=fuluball-chrome-new-tab';
 
     $('#girl-image-small').attr("src", girl_of_the_day_image); 
     $('#girl-name-small').html('<a href="'+girl_of_the_day_url+'" class="ga-link" data-category="Link" data-label="Girl Of The Day Link : '+girl_of_the_day_name+'">'+chrome.i18n.getMessage("girl_of_the_day_text")+'：'+girl_of_the_day_name+'</a>'); 
