@@ -3,6 +3,7 @@ body {
     color: #222;
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 a, a:hover, a:active, a:focus {
     color: #428bca;
