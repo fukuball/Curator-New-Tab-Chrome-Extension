@@ -12,29 +12,29 @@ a, a:hover, a:active, a:focus {
 }
 
 /* big background image */
-#bg-block { 
-    position: fixed; 
-    top: 0; 
+#bg-block {
+    position: fixed;
+    top: 0;
     left: 0;
     z-index: 0;
     min-width: 100%;
     min-height: 100%;
-    background: url(assets/img/bg-girl.jpg) no-repeat center center fixed; 
+    background: url(assets/img/bg-girl.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -webkit-filter: blur(5px);
 }
 
 /* frame */
 #main-content-block {
-    position: fixed; 
-    top: 0; 
+    position: fixed;
+    top: 0;
     left: 0;
     z-index: 5;
     min-width: 100%;
     min-height: 100%;
 }
 #main-content-inner {
-    width: 1000px; 
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 80px;
@@ -69,49 +69,49 @@ a, a:hover, a:active, a:focus {
 
 /* top sites block */
 .top-sites-block-fixed {
-    position: fixed; 
+    position: fixed;
     top: -300px;
     left: 100px;
-    visibility: hidden; 
+    visibility: hidden;
 }
 .boxgrid h3 {
     margin: 10px 10px 0 10px;
     color: #fff;
-    font-weight: bold; 
+    font-weight: bold;
 }
 .boxgrid h3 a {
     color: #fff;
     cursor: pointer;;
 }
-.boxgrid { 
-    width: 250px; 
-    height: 200px; 
-    margin:10px; 
-    float:left; 
-    background:#161613; 
-    border: solid 2px #8399AF; 
-    overflow: hidden; 
-    position: relative; 
+.boxgrid {
+    width: 250px;
+    height: 200px;
+    margin:10px;
+    float:left;
+    background:#161613;
+    border: solid 2px #8399AF;
+    overflow: hidden;
+    position: relative;
 }
-.boxgrid img { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    border: 0; 
+.boxgrid img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
 }
-.boxgrid p { 
-    padding: 0 10px; 
-    color:#afafaf; 
-    font-weight:bold; 
-    font:10pt "Lucida Grande", Arial, sans-serif; 
-}   
-.boxcaption { 
-    float: left; 
-    position: absolute; 
-    background: #000; 
-    height: 100px; 
-    width: 100%; 
-    opacity: .8; 
+.boxgrid p {
+    padding: 0 10px;
+    color:#afafaf;
+    font-weight:bold;
+    font:10pt "Lucida Grande", Arial, sans-serif;
+}
+.boxcaption {
+    float: left;
+    position: absolute;
+    background: #000;
+    height: 100px;
+    width: 100%;
+    opacity: .8;
 }
 .captionfull .boxcaption {
     top: 200;
@@ -120,15 +120,15 @@ a, a:hover, a:active, a:focus {
 
 /* footer block */
 #footer-block {
-    position: fixed; 
-    bottom: 0; 
+    position: fixed;
+    bottom: 0;
     left: 0;
-    z-index: 10;  
+    z-index: 10;
     min-width: 100%;
     background: rgba(242, 242, 242, 0.5);
     border-top: 1px solid #e4e4e4;
     font-size: small;
-    line-height: 40px;  
+    line-height: 40px;
 }
 .footer-right {
     margin-right: 30px;
@@ -205,20 +205,23 @@ a, a:hover, a:active, a:focus {
     float: right;
     font-weight: bold;
 }
+#logo img {
+    height: 40px;
+}
 
 /* header block */
 #header-block {
-    position: fixed; 
-    top: 0; 
+    position: fixed;
+    top: 0;
     left: 0;
-    z-index: 10;  
+    z-index: 10;
     min-width: 100%;
     background: rgba(242, 242, 242, 0.5);
     border-top: 1px solid #e4e4e4;
     font-size: small;
     line-height: 40px;
-    height: 40px;  
-    visibility: hidden; 
+    height: 40px;
+    visibility: hidden;
 }
 
 .header-link-block-left {
@@ -279,7 +282,7 @@ a.header-link:hover {
     background-color: #fff;
     height: 100%;
     width: 6px;
-    display: inline-block; 
+    display: inline-block;
     -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
     animation: stretchdelay 1.2s infinite ease-in-out;
 }
@@ -300,14 +303,14 @@ a.header-link:hover {
     animation-delay: -0.8s;
 }
 @-webkit-keyframes stretchdelay {
-    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
     20% { -webkit-transform: scaleY(1.0) }
 }
 @keyframes stretchdelay {
-    0%, 40%, 100% { 
+    0%, 40%, 100% {
         transform: scaleY(0.4);
         -webkit-transform: scaleY(0.4);
-    }  20% { 
+    }  20% {
         transform: scaleY(1.0);
         -webkit-transform: scaleY(1.0);
     }
